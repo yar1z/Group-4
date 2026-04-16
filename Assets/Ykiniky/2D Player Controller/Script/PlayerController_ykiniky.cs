@@ -14,6 +14,7 @@ namespace YkinikY
         [Header("Camera")]
         public PlayerCameraFollow_ykiniky playerCameraFollow;
         public Vector2 lastCheckpoint;
+        public GameObject spriteStuff;
         // Start is called before the first frame update
         void Start()
         {
@@ -53,12 +54,12 @@ namespace YkinikY
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 transform.position += 5 * Time.deltaTime * velocity * Vector3.left;
-                GetComponent<SpriteRenderer>().flipX = true;
+                spriteStuff.GetComponent<SpriteRenderer>().flipX = true;
             }
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 transform.position += 5 * Time.deltaTime * velocity * Vector3.right;
-                GetComponent<SpriteRenderer>().flipX = false;
+                spriteStuff.GetComponent<SpriteRenderer>().flipX = false;
             }
             if ((Input.GetKey(KeyCode.Space) & canJump) || (Input.GetKey(KeyCode.W) & canJump))
             {
@@ -74,11 +75,11 @@ namespace YkinikY
             transform.position += 5 * Time.deltaTime * velocity * Vector3.right * Input.GetAxis("Horizontal");
             if (Input.GetAxis("Horizontal") == 1)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                spriteStuff.GetComponent<SpriteRenderer>().flipX = false;
             }
             if (Input.GetAxis("Horizontal") == -1)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                spriteStuff.GetComponent<SpriteRenderer>().flipX = true;
             }
 
         }
